@@ -1,6 +1,6 @@
-extends('layouts.app')
+@extends('layouts.app')
 
-@section('content')@
+@section('content')
 <link href="{{ asset('css/register.css') }}" rel="stylesheet">
 
 
