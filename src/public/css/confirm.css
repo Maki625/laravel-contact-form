@@ -1,0 +1,133 @@
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    justify-content: center;
+}
+
+.header-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #7d6450;
+}
+
+.header-nav {
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav__item {
+    text-decoration: none;
+    background-color: #F5F5F5;
+    color: #7d6450;
+    border: 1px solid #7d6450;
+    padding: 6px 20px;
+    border-radius: 3px;
+    font-size: 14px;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.header-nav__link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.header-nav__link:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.form-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #7d6450;
+}
+
+.form-box {
+    width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+table th {
+    font-weight: bold;
+    background-color: #7d6450;
+    color: white;
+    white-space: nowrap;
+    padding-left: 10px;
+    text-align: left;
+}
+
+table td {
+    color: #7d6450;
+}
+.form-link {
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: auto;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #8B4513;
+}
+
+.form-btn {
+    background-color: #8B4513;
+    border: none;
+    padding: 9px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    width: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+}

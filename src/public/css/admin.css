@@ -1,0 +1,240 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #fffaf7;
+    color: #5a4636;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.admin-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: #7d6450;
+    text-align: center;
+}
+
+.search-form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.search-form input[type="text"],
+.search-form select,
+.search-form input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    background-color: #F5F5F5;
+    min-width: 280px;
+    color: #7d6450;
+}
+
+.search-form select,
+.search-form input[type="date"]
+{
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        background-color: #DCDCDC;
+        min-width: 100px;
+    }
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.search-form-button {
+    background-color: #b49a83;
+    color: white;
+    border: none;
+    padding: 8px 37px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.reset-btn {
+    background-color: #e0d3c3;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+.export-pagination-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.export-btn {
+    background-color: #d8c7b6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0;
+    gap: 0;
+    padding: 0;
+}
+
+.pagination .page-item {
+    display: inline-block;
+}
+
+.pagination .page-link {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #7d6450;
+    border: 1px solid #d8c7b6;
+    text-decoration: none;
+}
+
+.pagination .active span {
+    background-color: #7d6450;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #7d6450;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #5a4636;
+}
+
+.detail-btn {
+    background-color: white;
+    color: #7d6450;
+    border: 1px solid #d8c7b6;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* モーダル */
+.modal {
+    display: none;
+    /* 初期は非表示 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 背景半透明 */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-body p {
+    margin-bottom: 15px;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination-wrapper {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination nav {
+    display: inline-block;
+}
+
+.pagination nav div:first-child {
+    display: none;
+    /* ← 「表示件数」など不要なやつを非表示にする */
+}
+
+.pagination nav div:nth-child(2) {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.pagination nav div:nth-child(2) span,
+.pagination nav div:nth-child(2) a {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination nav div:nth-child(2) span {
+    background-color: #ccc;
+    color: #fff;
+    pointer-events: none;
+}

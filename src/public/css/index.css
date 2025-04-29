@@ -1,0 +1,194 @@
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    justify-content: center;
+}
+
+.header-utilities {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #7d6450;
+}
+
+.header-nav {
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav__item {
+    text-decoration: none;
+    background-color: #F5F5F5;
+    color: #7d6450;
+    border: 1px solid #7d6450;
+    padding: 6px 20px;
+    border-radius: 3px;
+    font-size: 14px;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.header-nav__link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.header-nav__link:hover {
+    text-decoration: underline;
+}
+
+body {
+    background-color: white;
+    font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+    color: #5b4c43;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.page-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #5b4c43;
+}
+
+.form-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+label {
+    width: 100px;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    margin-right: 150px;
+
+}
+
+.required {
+    color: #e17777;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    box-sizing: border-box;
+    gap: 10px;
+}
+
+textarea {
+    height: 200px;
+}
+
+.name-inputs {
+    display: flex;
+    gap: 20px;
+}
+
+.phone-inputs {
+    display: flex;
+    gap: 10px;
+
+}
+
+.phone-inputs input {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.gender-inputs {
+    display: flex;
+}
+
+.gender-inputs label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.address-inputs {
+    width:100px;
+}
+
+select {
+    width: 50px;
+    background: #f4f4f4 url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%235b4c43' points='70,105 105,35 35,35 '/%3E%3C/svg%3E") no-repeat right 10px center;
+    appearance: none;
+    -webkit-appearance: none;
+    background-size: 12px;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #5b4c43;
+    /* 茶色の外枠 */
+}
+
+button {
+    background-color: #5b4c43;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 0;
+}
+
+/* エラーメッセージのスタイル */
+.error {
+    color: red;
+    /* 赤色にして目立たせる */
+    font-size: 0.875rem;
+    /* 少し小さめに */
+    margin-top: 0.25rem;
+    /* メッセージの上に少し余白 */
+    display: block;
+    clear: both;
+}

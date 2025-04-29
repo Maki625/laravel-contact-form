@@ -1,0 +1,29 @@
+.thanks_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.thanks_message {
+    color: #7d6450;
+}
+
+.home_button {
+    display: inline-block;
+    padding: 10px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-top: 30px;
+}
