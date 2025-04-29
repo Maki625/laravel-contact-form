@@ -30,7 +30,7 @@ public function submitForm(ContactFormRequest $request)
     return view('confirm', compact('data'));
 }
 
-    public function store(ContactFormRequest $request)
+    public function store(Request $request)
 {
     Contact::create($request->only([
         'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'inquiry_type', 'inquiry_content'
