@@ -85,21 +85,19 @@ body {
 }
 
 .form-group {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    align-items: center;
+    margin-top: 32px;
+    grid-template-columns: 1fr 2fr;
 }
 
 label {
-    width: 100px;
+    width: 80px;
     display: inline-block;
     font-size: 16px;
     margin-top: 10px;
     margin-bottom: 8px;
     white-space: nowrap;
-    margin-right: 150px;
 
 }
 
@@ -110,8 +108,8 @@ label {
 
 input[type="text"],
 input[type="email"],
-select,
 textarea {
+    width: 80%;
     flex: 1;
     padding: 10px;
     border: none;
@@ -121,8 +119,18 @@ textarea {
     gap: 10px;
 }
 
+select {
+    width: 80%;
+    padding: 8px 16px;
+    background-color: #F4F4F4;
+    color: #BEB1A6;
+}
+
 textarea {
-    height: 200px;
+    padding: 8px 16px;
+        height: 144px;
+        background-color: #F4F4F4;
+        color: #BEB1A6;
 }
 
 .name-inputs {
@@ -131,6 +139,8 @@ textarea {
 }
 
 .phone-inputs {
+    width: calc(100%/3);
+    text-align: center;
     display: flex;
     gap: 10px;
 
@@ -152,12 +162,8 @@ textarea {
     margin-right: 20px;
 }
 
-.address-inputs {
-    width:100px;
-}
-
 select {
-    width: 50px;
+    width: 80%;
     background: #f4f4f4 url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%235b4c43' points='70,105 105,35 35,35 '/%3E%3C/svg%3E") no-repeat right 10px center;
     appearance: none;
     -webkit-appearance: none;
@@ -182,13 +188,13 @@ button {
 }
 
 /* エラーメッセージのスタイル */
-.error {
-    color: red;
-    /* 赤色にして目立たせる */
-    font-size: 0.875rem;
-    /* 少し小さめに */
-    margin-top: 0.25rem;
-    /* メッセージの上に少し余白 */
-    display: block;
-    clear: both;
+.error-message {
+    margin-top: 8px;
+    color: #FF9494;
+    grid-column: 2;
+}
+
+.error-message-first-name,
+.error-message-last-name {
+    color: #FF9494;
 }

@@ -32,9 +32,21 @@ public function submitForm(ContactFormRequest $request)
 
     public function store(Request $request)
 {
-    Contact::create($request->only([
-        'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'inquiry_type', 'inquiry_content'
-    ]));
+    if ($request->return) {
+        return redirect('/')->withInput();
+    }
+
+    $tel = $request->tel1 . '-' . $request->tel2 . '-' . $request->tel3;
+
+    Contact::create([
+        'first_name' => $request->first_name, 'last_name' => $request->last_name,
+        'gender' => $request->gender, 'email' => $request->email,
+        'tel' => $tel,
+        'address' => $request->address,
+        'building' => $request->building,
+        'inquiry_type' => $request->inquiry_type,
+        'inquiry_content' => $request->inquiry_content,
+    ]);
 
     return redirect('/thanks');
 }
@@ -50,6 +62,29 @@ public function adminIndex()
 {
     $contacts = Contact::paginate(7);
     return view('admin', compact('contacts'));
+}
+
+// 検索ボタン
+public function search(Request $request)
+    {
+        if ($request->has('reset')) {
+            return redirect('/admin');
+        }
+        $query = Contact::query();
+
+        $query = $this->getSearchQuery($request, $query);
+
+        $contacts = $query->paginate(7);
+        $categories = Category::all();
+
+        return view('admin', compact('contacts', 'categories'));
+    }
+
+// 削除ボタン
+public function destroy(Request $request)
+{
+    Contact::find($request->id)->delete();
+    return redirect('/admin');
 }
 
 }

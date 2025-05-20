@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
+//use App\Http\Controllers\Auth\RegisterController;
+//use App\Http\Controllers\Auth\LoginController;
 
 // お問合せフォーム入力ページ
 Route::get('/', [ContactFormController::class, 'index'])->name('contact.index');
@@ -22,10 +22,16 @@ Route::get('/thanks', [ContactFormController::class, 'thanks']);
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/export', [AdminController::class, 'export']);
 
+// 検索ボタン
+Route::get('/search', [ContactFormController::class, 'search']);
+
+// 削除ボタン
+Route::post('/delete', [ContactFormController::class, 'destroy']);
+
 // 登録フォーム・登録処理
-Route::get('/register', [RegisterController::class, 'showForm']);
-Route::post('/register', [RegisterController::class, 'register']);
+// Route::get('/register', [RegisterController::class, 'showForm']);
+// Route::post('/register', [RegisterController::class, 'register']);
 
 // ログインフォーム・ログイン処理
-Route::get('/login', [LoginController::class, 'showForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+// Route::get('/login', [LoginController::class, 'showForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login']);

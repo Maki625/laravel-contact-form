@@ -6,7 +6,7 @@
 <div class="container">
     <h1 class="text-center mb-4 admin-title">Admin</h1>
 
-   {{-- 検索フォーム --}}
+    {{-- 検索フォーム --}}
 <div class="search-form-wrapper">
     <form method="GET" action="/admin" class="search-form">
         <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword') }}">
@@ -66,67 +66,91 @@
         <tbody>
             @foreach ($contacts as $contact)
                 <tr>
-                    <td>{{ $contact->name }}</td>
-                    <td>{{ $contact->gender }}</td>
+                    <td>{{ $contact->last_name }}{{ $contact->first_name }}</td>
+                    <td>@if($contact->gender == 1)
+                        男性
+                        @elseif($contact->gender == 2)
+                        女性
+                        @else
+                        その他
+                        @endif
+                    </td>
                     <td>{{ $contact->email }}</td>
-                    <td>{{ $contact->type }}</td>
-                    <td><button type="button" class="detail-btn" data-id="{{ $contact->id }}">詳細</button></td>
+                    <td>@foreach($categories as $category)
+                          @if($category->id == 2)
+                          <option value="{{ $category->id }}" selected>
+                          {{ $category->content }}
+                          </option>
+                          @endif
+                        @endforeach
+                    </td>
+                    <td><label for="modalToggle-{{ $contact->id }}" class="detail-btn">詳細</label></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
 @foreach ($contacts as $contact)
-    <div id="modal-{{ $contact->id }}" class="modal hidden">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-body">
-                <p><strong>お名前：</strong> {{ $contact->name }}</p>
-                <p><strong>性別：</strong> {{ $contact->gender }}</p>
-                <p><strong>メールアドレス：</strong> {{ $contact->email }}</p>
-                <p><strong>お問い合わせの種類：</strong> {{ $contact->type }}</p>
-                <p><strong>お問い合わせ内容：</strong> {{ $contact->content }}</p>
-                <form method="POST" action="/admin/delete/{{ $contact->id }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="delete-btn">削除</button>
-                </form>
-            </div>
+
+<!-- チェックボックス（表示トリガー） -->
+<input type="checkbox" id="modalToggle-{{ $contact->id }}" class="modal-checkbox">
+    <div class="modal">
+    <label for="modalToggle-{{ $contact->id }}" class="modal-overlay">&times;</label>
+    <div class="modal__inner">
+          <div class="modal__content">
+            <label for="modalToggle-{{ $contact->id }}" class="modal__close-btn">×</label>
+            <form class="modal__detail-form" action="/delete" method="post">
+              @csrf
+              <div class="modal-form__group">
+                <label class="modal-form__label" for="">お名前</label>
+                <p>{{$contact->last_name}}{{$contact->first_name}}</p>
+              </div>
+
+              <div class="modal-form__group">
+                <label class="modal-form__label" for="">性別</label>
+                <p>
+                  @if($contact->gender == 1)
+                  男性
+                  @elseif($contact->gender == 2)
+                  女性
+                  @else
+                  その他
+                  @endif
+                </p>
+              </div>
+
+              <div class="modal-form__group">
+                <label class="modal-form__label" for="">メールアドレス</label>
+                <p>{{$contact->email}}</p>
+              </div>
+
+              <div class="modal-form__group">
+                <label class="modal-form__label" for="">電話番号</label>
+                <p>{{$contact->tel}}</p>
+              </div>
+
+              <div class="modal-form__group">
+                <label class="modal-form__label" for="">住所</label>
+                <p>{{$contact->address}}</p>
+              </div>
+
+              <div class="modal-form__group">
+                <label class="modal-form__label" for="">お問い合わせの種類</label>
+                <p>{{$contact->category->content}}</p>
+              </div>
+
+              <div class="modal-form__group">
+                <label class="modal-form__label" for="">お問い合わせ内容</label>
+                <p>{{$contact->inquiry_content}}</p>
+              </div>
+              <input type="hidden" name="id" value="{{ $contact->id }}">
+              <input class="modal-form__delete-btn btn" type="submit" value="削除">
+
+            </form>
+          </div>
         </div>
     </div>
 @endforeach
 
 
 @endsection
-
-<script>
-    // 全ての「詳細を見る」ボタンにイベントをつける
-    document.querySelectorAll('.detail-btn').forEach(function(button) {
-        button.addEventListener('click', function () {
-            // data属性からIDを取得
-            const contactId = button.getAttribute('data-id');
-            const modal = document.getElementById('modal-' + contactId);
-            if (modal) {
-                modal.style.display = 'block';
-            }
-        });
-    });
-
-    // 全てのモーダルの×ボタンを動かす
-    document.querySelectorAll('.modal .close').forEach(function(closeBtn) {
-        closeBtn.addEventListener('click', function () {
-            const modal = closeBtn.closest('.modal');
-            modal.style.display = 'none';
-        });
-    });
-
-    // モーダルの外をクリックしたら閉じる
-    window.addEventListener('click', function (event) {
-        document.querySelectorAll('.modal').forEach(function(modal) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    });
-</script>
-

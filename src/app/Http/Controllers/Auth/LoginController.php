@@ -22,7 +22,7 @@ class LoginController extends Controller
     {
         // ユーザー認証
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('/dashboard'); // ログイン後のリダイレクト先
+            return redirect()->intended('/'); // ログイン後のリダイレクト先
         }
 
         return back()->withErrors(['email' => 'メールアドレスまたはパスワードが間違っています。']);

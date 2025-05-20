@@ -7,7 +7,7 @@
     <h2 class="login-title">Login</h2>
 
     <div class="login-box">
-    <form method="POST" action="/login">
+    <form class="form" method="POST" action="/login">
     @csrf
 
 <!-- メールアドレス -->

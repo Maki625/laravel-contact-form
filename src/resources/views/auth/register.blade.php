@@ -9,7 +9,7 @@
     <h2 class="register-title">Register</h2>
 
     <div class="register-box">
-        <form method="POST" action="/register">
+        <form class="form" method="POST" action="/register">
             @csrf
 
             <!-- お名前 -->
