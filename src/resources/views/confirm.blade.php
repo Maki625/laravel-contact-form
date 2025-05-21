@@ -64,18 +64,17 @@
             <input type="hidden" name="first_name" value="{{ $data['first_name'] }}">
     <input type="hidden" name="last_name" value="{{ $data['last_name'] }}">
     <input type="hidden" name="gender" value="{{ $data['gender'] }}">
+    <input type="hidden" name="email" value="{{ $data['email'] }}">
     <input type="hidden" name="tel1" value="{{ $data['tel1'] }}">
     <input type="hidden" name="tel2" value="{{ $data['tel2'] }}">
     <input type="hidden" name="tel3" value="{{ $data['tel3'] }}">
     <input type="hidden" name="address" value="{{ $data['address'] }}">
+    <input type="hidden" name="building" value="{{ $data['building'] }}">
     <input type="hidden" name="inquiry_type" value="{{ $data['inquiry_type'] }}">
     <input type="hidden" name="inquiry_content" value="{{ $data['inquiry_content'] }}">
             <button type="submit" name="send" class="form-btn" value="1">送信</button>
             <button type="submit" name="return" class="form-btn" value="1">修正</button>
         </form>
-
-        <!-- 修正リンク -->
-        <a href="{{ route('contact.index') }}" class="form-link">修正</a>
 
     </div>
 </div>
