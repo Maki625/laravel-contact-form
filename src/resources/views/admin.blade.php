@@ -18,10 +18,10 @@
             <option value="その他" {{ request('gender') == 'その他' ? 'selected' : '' }}>その他</option>
         </select>
 
-        <select name="type">
+        <select name="inquiry_type">
     <option value="">お問い合わせの種類</option>
     @foreach ($categories as $category)
-        <option value="{{ $category->id }}" {{ request('type') == $category->id ? 'selected' : '' }}>
+        <option value="{{ $category->id }}" {{ request('inquiry_type') == $category->id ? 'selected' : '' }}>
             {{ $category->content }}
         </option>
     @endforeach
@@ -41,7 +41,7 @@
     <form method="GET" action="/admin/export">
         <input type="hidden" name="keyword" value="{{ request('keyword') }}">
         <input type="hidden" name="gender" value="{{ request('gender') }}">
-        <input type="hidden" name="type" value="{{ request('type') }}">
+        <input type="hidden" name="category_id" value="{{ request('category_id') }}">
         <input type="hidden" name="date" value="{{ request('date') }}">
         <button type="submit" class="export-btn">エクスポート</button>
     </form>
@@ -76,13 +76,7 @@
                         @endif
                     </td>
                     <td>{{ $contact->email }}</td>
-                    <td>@foreach($categories as $category)
-                          @if($category->id == 2)
-                          <option value="{{ $category->id }}" selected>
-                          {{ $category->content }}
-                          </option>
-                          @endif
-                        @endforeach
+                    <td>{{ $contact->category->content ?? '未設定' }}
                     </td>
                     <td><label for="modalToggle-{{ $contact->id }}" class="detail-btn">詳細</label></td>
                 </tr>

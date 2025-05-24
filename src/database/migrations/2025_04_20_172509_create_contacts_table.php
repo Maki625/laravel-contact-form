@@ -27,7 +27,7 @@ class CreateContactsTable extends Migration
     $table->timestamps();
 
     $table->foreign('inquiry_type')->references('id')->on('categories')->onDelete('cascade');
-    
+
 });
 
     }

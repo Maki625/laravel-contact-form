@@ -20,8 +20,9 @@ class AdminController extends Controller
 
         if ($request->filled('keyword')) {
             $query->where(function($q) use ($request) {
-                $q->where('name', 'like', '%'.$request->keyword.'%')
-->orWhere('email', 'like', '%'.$request->keyword.'%');
+                $q->where('first_name', 'like', '%'.$request->keyword.'%')
+                ->orWhere('last_name', 'like', '%'.$request->keyword.'%')
+                ->orWhere('email', 'like', '%'.$request->keyword.'%');
             });
         }
 
@@ -31,8 +32,8 @@ class AdminController extends Controller
             }
         }
 
-        if ($request->filled('type')) {
-            $query->where('type', $request->type);
+        if ($request->filled('inquiry_type')) {
+            $query->where('inquiry_type', $request->type);
         }
 
         if ($request->filled('date')) {
